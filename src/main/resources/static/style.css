@@ -1,13 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
 
-:root{
-	--primary: #6b59d3;
-	--secondary: #bfc0c0;
-	--white: #fff;
-	--text-clr: #5b6475;
-	--header-clr: #25273d;
-	--next-btn-hover: #8577d2;
-	--back-btn-hover: #8b8c8c;
+/* Set default colors */
+:root {
+    --primary: #6b59d3; /* Primary color */
+    --secondary: #bfc0c0; /* Secondary color */
+    --white: #fff; /* White color */
+    --text-clr: #5b6475; /* Text color */
+    --header-clr: #25273d; /* Header color */
+    --next-btn-hover: #8577d2; /* Next button hover color */
+    --back-btn-hover: #8b8c8c; /* Back button hover color */
+    --active-green: #00FF00; /* Active green color */
+    --inactive-grey: #808080; /* Inactive grey color */
 }
 
 *{
@@ -34,6 +37,47 @@ body{
 	padding: 50px;
 	border-radius: 5px;
 }
+
+/* Apply colors to active progress bar items */
+.wrapper .header ul li.active div {
+    background-color: var(--active-green); /* Set active progress bar color to green */
+}
+
+/* Apply colors to progress bar numbers */
+.wrapper .header ul li div p {
+    color: var(--inactive-grey); /* Set default color of progress bar numbers to grey */
+}
+
+/* Apply colors to active progress bar numbers */
+.wrapper .header ul li.active div p {
+    color: var(--active-green); /* Set active progress bar numbers color to green */
+}
+
+/* Apply colors to check mark icons */
+.wrapper .header ul li div p i {
+    color: var(--inactive-grey); /* Set default color of check mark icons to grey */
+}
+
+/* Apply colors to active check mark icons */
+.wrapper .header ul li.active div p i {
+    color: var(--active-green); /* Set active check mark icons color to green */
+}
+
+
+.input_wrap {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.input_wrap input {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add box shadow */
+    z-index: 1; /* Adjust z-index to position input boxes above shadow */
+}
+
 
 .wrapper .header{
 	margin-bottom: 35px;
@@ -237,7 +281,7 @@ body{
 }
 
 .modal_wrapper.active .shadow{
-	opacity: 1;
+	opacity: 5;
 }
 
 .modal_wrapper.active .success_wrap{

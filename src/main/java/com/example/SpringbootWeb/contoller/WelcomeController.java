@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 @Slf4j
-@RequestMapping("/welcome")
 public class WelcomeController {
     @GetMapping("/")
     public String showHome() {
@@ -21,6 +20,13 @@ public class WelcomeController {
     public String processHome(Model model, @RequestParam("email") String email) {
 
         log.info("email : {}",email);
+        return "home";
+    }
+
+    @PostMapping("process-form-2")
+    public String processForm2(Model model, @RequestParam("courseName") String courseName) {
+
+        log.info("courseName : {}",courseName);
         return "home";
     }
 }

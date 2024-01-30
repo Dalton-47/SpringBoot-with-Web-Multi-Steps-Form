@@ -31,11 +31,11 @@
     <div class="form_wrap">
         <div class="form_1 data_info">
             <h2>Student Info</h2>
-            <form id="bioDetails" th:method="POST", th:action="@{'/welcome/process-form'}">
+            <form id="bioDetails" th:method="POST", th:action="@{'/process-form'}">
                 <div class="form_container">
                     <div class="input_wrap">
                         <label for="email">Email Address</label>
-                        <input type="text" name="Email Address" class="input" id="email">
+                        <input type="text" name="email" class="input" id="email">
                     </div>
                     <div class="input_wrap">
                         <label for="password">Password</label>
@@ -46,6 +46,9 @@
                         <input type="password" name="confirm password" class="input" id="confirm_password">
                     </div>
                 </div>
+                <div class="common_btns form_1_btns">
+                    <button type="submit" class="btn_next">Submit <span class="icon"><ion-icon name="arrow-forward-sharp"></ion-icon></span></button>
+                </div>
                 <div class="input_wrap">
                     <button type="submit" class="btn_next">submit</button>
                 </div>
@@ -53,11 +56,11 @@
         </div>
         <div class="form_2 data_info" style="display: none;">
             <h2>Course Info</h2>
-            <form>
+            <form id="courseDetails" th:method="POST", th:action="@{'/process-form-2'}">
                 <div class="form_container">
                     <div class="input_wrap">
-                        <label for="user_name">Course Name</label>
-                        <input type="text" name="User Name" class="input" id="user_name">
+                        <label for="courseName">Course Name</label>
+                        <input type="text" name="courseName" class="input" id="courseName">
                     </div>
                     <div class="input_wrap">
                         <label for="first_name">Course ID</label>
@@ -91,9 +94,7 @@
         </div>
     </div>
     <div class="btns_wrap">
-        <div class="common_btns form_1_btns">
-            <button type="button" class="btn_next">Next <span class="icon"><ion-icon name="arrow-forward-sharp"></ion-icon></span></button>
-        </div>
+       <!--button for form 1 was here -->
         <div class="common_btns form_2_btns" style="display: none;">
             <button type="button" class="btn_back"><span class="icon"><ion-icon name="arrow-back-sharp"></ion-icon></span>Back</button>
             <button type="button" class="btn_next">Next <span class="icon"><ion-icon name="arrow-forward-sharp"></ion-icon></span></button>

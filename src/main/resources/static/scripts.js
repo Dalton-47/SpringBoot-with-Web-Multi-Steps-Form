@@ -36,6 +36,9 @@ function updateProgressBars(currentIndex) {
 }
 
 form_1_next_btn.addEventListener("click", function(){
+
+ fetch('process-form', { method: 'POST' });
+
     form_1.style.display = "none";
     form_2.style.display = "block";
 

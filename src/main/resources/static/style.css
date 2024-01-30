@@ -9,7 +9,7 @@
     --header-clr: #25273d; /* Header color */
     --next-btn-hover: #8577d2; /* Next button hover color */
     --back-btn-hover: #8b8c8c; /* Back button hover color */
-    --active-green: #00FF00; /* Active green color */
+    --active-green: #FFFFFF; /* Active green color */
     --inactive-grey: #808080; /* Inactive grey color */
 }
 
@@ -128,10 +128,12 @@ body{
 	border-radius: 50%;
 }
 
+/*progresive icon bar link colour*/
 .wrapper .header ul li.active:before{
 	background: var(--primary);
 }
 
+/*progressive icons background colour*/
 .wrapper .header ul li.active p{
 	background: var(--primary);
 }

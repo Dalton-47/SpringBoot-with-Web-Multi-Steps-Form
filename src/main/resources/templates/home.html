@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>SpringBoot Web Multi-Form</title>
     <link rel="stylesheet" type="text/css" href="style.css">
@@ -31,7 +31,7 @@
     <div class="form_wrap">
         <div class="form_1 data_info">
             <h2>Student Info</h2>
-            <form>
+            <form id="bioDetails" th:method="POST", th:action="@{'/welcome/process-form'}">
                 <div class="form_container">
                     <div class="input_wrap">
                         <label for="email">Email Address</label>
@@ -45,6 +45,9 @@
                         <label for="confirm_password">Confirm Password</label>
                         <input type="password" name="confirm password" class="input" id="confirm_password">
                     </div>
+                </div>
+                <div class="input_wrap">
+                    <button type="submit" class="btn_next">submit</button>
                 </div>
             </form>
         </div>

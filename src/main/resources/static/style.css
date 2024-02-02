@@ -289,3 +289,38 @@ body{
 .modal_wrapper.active .success_wrap{
 	transform: translate(-50%,-50%);
 }
+
+/* Additions for Form 2 */
+.wrapper .form_wrap .form_2_btns {
+  justify-content: flex-end; /* Align buttons to the right */
+}
+
+/* Additions for Form 3 */
+.wrapper .form_wrap .form_3_btns {
+  justify-content: flex-end; /* Align buttons to the right */
+}
+
+/* Styling for the submit button */
+.wrapper .btns_wrap .common_btns button.btn_next,
+.wrapper .btns_wrap .common_btns button.btn_done {
+  background: var(--primary); /* Set background color */
+  color: var(--white); /* Set text color */
+  width: 150px; /* Adjust width */
+}
+
+.wrapper .btns_wrap .common_btns button.btn_next:hover,
+.wrapper .btns_wrap .common_btns button.btn_done:hover {
+  background: var(--next-btn-hover); /* Set hover background color */
+}
+
+/* Additions for the success modal */
+.modal_wrapper .success_wrap {
+  width: 400px; /* Adjust width */
+  padding: 30px; /* Adjust padding */
+}
+
+.modal_wrapper .success_wrap .modal_icon {
+  width: 70px; /* Adjust width */
+  height: 70px; /* Adjust height */
+  font-size: 40px; /* Adjust font size */
+}

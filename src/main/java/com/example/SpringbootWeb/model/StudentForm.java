@@ -1,7 +1,9 @@
 package com.example.SpringbootWeb.model;
 
+import org.springframework.web.multipart.MultipartFile;
+
 public class StudentForm {
-    private String email;
+    private MultipartFile file;
     private String password;
     private String confirmPassword;
 
@@ -11,19 +13,19 @@ public class StudentForm {
     public StudentForm() {
     }
 
-    public StudentForm(String email, String password, String confirmPassword) {
-        this.email = email;
+    public StudentForm(MultipartFile file, String password, String confirmPassword) {
+        this.file = file;
         this.password = password;
         this.confirmPassword = confirmPassword;
     }
 
     // Getters and setters
-    public String getEmail() {
-        return email;
+    public MultipartFile getFile() {
+        return file;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setFile(MultipartFile file) {
+        this.file = file;
     }
 
     public String getPassword() {

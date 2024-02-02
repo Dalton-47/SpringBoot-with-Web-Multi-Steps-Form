@@ -28,15 +28,17 @@
             </li>
         </ul>
     </div>
+
+    <!--Form Class-->
     <div class="form_wrap">
         <div class="form_1 data_info">
             <h2>Student Info</h2>
-            <form id="bioDetails" th:action="@{/process-form}" th:object="${studentForm}" method="post">
+            <form id="bioDetails" th:action="@{/process-form}" th:object="${studentForm}" method="POST">
                 <input type="hidden" name="formType" value="form1">
                 <div class="form_container">
                     <div class="input_wrap">
-                        <label for="email">Email Address</label>
-                        <input type="text" th:field="*{email}" class="input" id="email">
+                        <label for="file">Upload File</label>
+                        <input type="file" name="file" class="input" id="file" th:field="*{file}">
                     </div>
                     <div class="input_wrap">
                         <label for="password">Password</label>
@@ -47,15 +49,15 @@
                         <input type="password" th:field="*{confirmPassword}" class="input" id="confirm_password">
                     </div>
                 </div>
-                <div class="common_btns form_1_btns">
-                    <button type="submit" class="btn_next">Submit <span class="icon"><ion-icon name="arrow-forward-sharp"></ion-icon></span></button>
+                <div class="btns_wrap form_1_btns">
+                    <button type="submit" class="btn_next" onclick="run(event)" >Submit <span class="icon"><ion-icon name="arrow-forward-sharp"></ion-icon></span></button>
                 </div>
             </form>
         </div>
 
         <div class="form_2 data_info" style="display: none;">
             <h2>Course Info</h2>
-            <form id="courseDetails" th:action="@{/process-form}" th:object="${courseForm}" method="post">
+            <form id="courseDetails" th:action="@{/process-form}" th:object="${courseForm}" method="POST">
                 <input type="hidden" name="formType" value="form2">
                 <div class="form_container">
                     <div class="input_wrap">
@@ -71,34 +73,36 @@
                         <input type="text" th:field="*{courseDetail}" class="input" id="courseDetail">
                     </div>
                 </div>
-                <div class="common_btns form_1_btns">
+                <div class="common_btns form_2_btns">
                     <button type="submit" class="btn_next">SubmitNext <span class="icon"><ion-icon name="arrow-forward-sharp"></ion-icon></span></button>
                 </div>
             </form>
         </div>
         <div class="form_3 data_info" style="display: none;">
             <h2>Semester Info</h2>
-            <form>
+            <form id="semesterDetails" th:action="@{/process-form}" th:object="${semesterForm}" method="POST">
                 <input type="hidden" name="formType" value="form3">
                 <div class="form_container">
                     <div class="input_wrap">
-                        <label for="company">Current Year</label>
-                        <input type="text" name="Current Company" class="input" id="company">
+                        <label for="semesterName">Semester Name</label>
+                        <input type="text" th:field="*{semesterName}" class="input" id="semesterName">
                     </div>
                     <div class="input_wrap">
-                        <label for="experience">Semester</label>
-                        <input type="text" name="Total Experience" class="input" id="experience">
+                        <label for="semesterID">Course ID</label>
+                        <input type="text" th:field="*{semesterID}" class="input" id="semesterID">
                     </div>
                     <div class="input_wrap">
-                        <label for="designation">Units</label>
-                        <input type="text" name="Designation" class="input" id="designation">
+                        <label for="courseDetail">Semester Detail</label>
+                        <input type="text" th:field="*{semesterDetail}" class="input" id="semesterDetail">
                     </div>
+                </div>
+                <div class="common_btns form_3_btns">
+                    <button type="submit" class="btn_next">SubmitFinal <span class="icon"><ion-icon name="arrow-forward-sharp"></ion-icon></span></button>
                 </div>
             </form>
         </div>
     </div>
     <div class="btns_wrap">
-       <!--button for form 1 was here -->
         <div class="common_btns form_2_btns" style="display: none;">
             <button type="button" class="btn_back"><span class="icon"><ion-icon name="arrow-back-sharp"></ion-icon></span>Back</button>
             <button type="button" class="btn_next">Next <span class="icon"><ion-icon name="arrow-forward-sharp"></ion-icon></span></button>

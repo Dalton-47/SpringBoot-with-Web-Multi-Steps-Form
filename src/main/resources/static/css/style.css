@@ -4,12 +4,12 @@
 :root {
     --primary: #6b59d3; /* Primary color */
     --secondary: #bfc0c0; /* Secondary color */
-    --white: #fff; /* White color */
+    --white: #ffffff; /* White color */
     --text-clr: #5b6475; /* Text color */
     --header-clr: #25273d; /* Header color */
     --next-btn-hover: #8577d2; /* Next button hover color */
     --back-btn-hover: #8b8c8c; /* Back button hover color */
-    --active-green: #FFFFFF; /* Active green color */
+    --active-green: #1A2421; /* Active green color */
     --inactive-grey: #808080; /* Inactive grey color */
 }
 
@@ -304,7 +304,7 @@ body{
 .wrapper .btns_wrap .common_btns button.btn_next,
 .wrapper .btns_wrap .common_btns button.btn_done {
   background: var(--primary); /* Set background color */
-  color: var(--white); /* Set text color */
+  color: var(--active-green); /* Set text color */
   width: 150px; /* Adjust width */
 }
 

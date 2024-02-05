@@ -6,6 +6,8 @@ import com.example.SpringbootWeb.model.SemesterForm;
 import com.example.SpringbootWeb.model.StudentForm;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -50,21 +52,16 @@ public class WelcomeController {
 
                                   try {
                                       log.info("Form link from form 1: {}", studentForm.getFile().getOriginalFilename());
-                                      studentsImplementation.processExcelFile(file);
-                                      return "redirect:/api/form2";
-                                  } catch (IOException e) {
+                                      studentsImplementation.processExcelFile(model, file);
+                                   //  return "redirect:form2";
+                                      return "form1";
+                                        } catch (IOException e) {
                                       e.printStackTrace();
-                                      log.info("Form link ERROR form 1: {}", studentForm.getFile().getOriginalFilename());
+                                      log.info("ERROR form 1: {}", e.getMessage());
 
                                       //  return "redirect:/error";
-                                      return "redirect:/api/form2";
+                                      return "form1";
                                   }
-/*
-        // Handle form 1 data
-        log.info("Form link from form 1: {}", studentForm.getFile().getOriginalFilename());
-        // Add logic to process form 1 data and update model attributes if needed
-        return "redirect:/api/form2";
- */
 
     }
 

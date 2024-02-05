@@ -290,6 +290,7 @@ body{
 	transform: translate(-50%,-50%);
 }
 
+
 /* Additions for Form 2 */
 .wrapper .form_wrap .form_2_btns {
   justify-content: flex-end; /* Align buttons to the right */

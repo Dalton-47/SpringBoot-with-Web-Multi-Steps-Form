@@ -15,6 +15,10 @@ var form_1_progessbar = document.querySelector(".form_1_progessbar");
 var form_2_progessbar = document.querySelector(".form_2_progessbar");
 var form_3_progessbar = document.querySelector(".form_3_progessbar");
 */
+var form_1 = document.querySelector(".form_1");
+
+var form_2 = document.querySelector(".form_2");
+var form_3 = document.querySelector(".form_3");
 
 var btn_done = document.querySelector(".btn_done");
 var modal_wrapper = document.querySelector(".modal_wrapper");
@@ -41,13 +45,13 @@ var form_1_next_btn = document.querySelector(".form_1_btns .btn_next");
 var form_2_progessbar = document.querySelector(".form_2_progessbar");
 
 form_1_next_btn.addEventListener("click", function(){
-    form_1.style.display = "none";
-    form_2.style.display = "block";
+//    form_1.style.display = "none";
+//    form_2.style.display = "block";
+//
+//    form_1_btns.style.display = "none";
+//    form_2_btns.style.display = "flex";
 
-    form_1_btns.style.display = "none";
-    form_2_btns.style.display = "flex";
-
-    form_2_progessbar.classList.add("active");
+//  form_2_progessbar.classList.add("active");
 
     updateProgressBars(1); // Update progress bar when form 1 is completed
 });

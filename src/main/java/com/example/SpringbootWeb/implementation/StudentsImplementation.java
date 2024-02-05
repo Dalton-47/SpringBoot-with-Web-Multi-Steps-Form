@@ -15,7 +15,10 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.repository.query.FluentQuery;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.ui.Model;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
@@ -26,12 +29,18 @@ import java.util.List;
 import java.util.Optional;
 import java.util.function.Function;
 
+
+
 @Service
 @Slf4j
 public class StudentsImplementation implements StudentService {
+  public  boolean allRecordsSaved = false;
+    private final StudentRepository studentRepository;
 
-@Autowired
-    StudentRepository studentRepository;
+    public StudentsImplementation(StudentRepository studentRepository) {
+        this.studentRepository = studentRepository;
+    }
+
 
     @Override
     public void flush() {
@@ -184,33 +193,55 @@ public class StudentsImplementation implements StudentService {
     }
 
     //implementation of excel reading
-    @Transactional
-    public void processExcelFile(MultipartFile file) throws IOException {
-        Workbook workbook = WorkbookFactory.create(file.getInputStream());
-        Sheet sheet = workbook.getSheetAt(0); // when the data is in the first sheet
-
-        Iterator<Row> rowIterator = sheet.iterator();
+    @Transactional(rollbackOn = Exception.class)
+    public void processExcelFile(Model model, MultipartFile file) throws IOException {
         List<Students> students = new ArrayList<>();
-
-        while (rowIterator.hasNext()) {
-            Row row = rowIterator.next();
-            if (row.getRowNum() == 0) continue; // Skip header row
-
-            Students student = new Students();
-            student.setFirstName(row.getCell(1).getStringCellValue()) ;
-            student.setSecondName(row.getCell(2).getStringCellValue()) ;
-            student.setCourse(row.getCell(3).getStringCellValue()) ;
-            student.setFee(row.getCell(4).getNumericCellValue()) ;
-
-         //   log.info("Student Name: {}", student.getFirstName());
+        int rowCount = 0;
+      //  boolean allRecordsSaved = false;
 
 
-            students.add(student);
+        try {
+            Workbook workbook = WorkbookFactory.create(file.getInputStream());
+            Sheet sheet = workbook.getSheetAt(0); // when the data is in the first sheet
+
+            Iterator<Row> rowIterator = sheet.iterator();
+//            List<Students> students = new ArrayList<>();
+
+            while (rowIterator.hasNext()) {
+                Row row = rowIterator.next();
+                if (row.getRowNum() == 0) continue; // Skip header row
+
+                Students student = new Students();
+                student.setFirstName(row.getCell(1).getStringCellValue());
+                student.setSecondName(row.getCell(2).getStringCellValue());
+                student.setCourse(row.getCell(3).getStringCellValue());
+                student.setFee(row.getCell(4).getNumericCellValue());
+
+                students.add(student);
+                rowCount++;
+            }
+
+            studentRepository.saveAll(students);
+            allRecordsSaved = true;
+            workbook.close();
         }
+        catch (Exception e)
+        {
+            // Log the exception or handle it as required
+            throw new RuntimeException("Error processing Excel file", e);
+        }
+        String message = "Successfully inserted " + rowCount + " rows.";
 
-        studentRepository.saveAll(students);
-        workbook.close();
+      //  String jsScript = "<script>document.getElementById('notification').innerHTML = '" + message + "'</script>";
+        model.addAttribute("message", message);
+        model.addAttribute("allRecordsSaved", allRecordsSaved);
+        log.info("UPLOAD STATUS: {}", ResponseEntity.status(HttpStatus.OK).body(message));
+
+      //  return ResponseEntity.status(HttpStatus.OK).body(message);
+
     }
+
+
 
 
 }

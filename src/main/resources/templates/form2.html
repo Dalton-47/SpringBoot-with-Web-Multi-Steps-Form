@@ -3,7 +3,7 @@
 <html>
 <head>
     <title>Form 2</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
     <!-- Include Font Awesome via CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
@@ -34,7 +34,7 @@
     <div class="form_wrap">
         <div class="form_2 data_info" style="display: block;">
             <h2>Course Info</h2>
-            <form id="courseDetails" th:action="@{/process-form-2}" th:object="${courseForm}" method="POST">
+            <form id="courseDetails" th:action="@{/api/process-form-two}" th:object="${courseForm}" method="POST">
                 <input type="hidden" name="formType" value="form2">
                 <div class="form_container">
                     <div class="input_wrap">

@@ -1,4 +1,4 @@
-package com.example.SpringbootWeb.contoller;
+package com.example.SpringbootWeb.controller;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;

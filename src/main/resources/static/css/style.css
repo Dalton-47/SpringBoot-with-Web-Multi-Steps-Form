@@ -4,12 +4,12 @@
 :root {
     --primary: #6b59d3; /* Primary color */
     --secondary: #bfc0c0; /* Secondary color */
-    --white: #ffffff; /* White color */
+    --white: #fff; /* White color */
     --text-clr: #5b6475; /* Text color */
     --header-clr: #25273d; /* Header color */
     --next-btn-hover: #8577d2; /* Next button hover color */
     --back-btn-hover: #8b8c8c; /* Back button hover color */
-    --active-green: #1A2421; /* Active green color */
+    --active-green: #fff; /* Active green color */
     --inactive-grey: #808080; /* Inactive grey color */
 }
 
@@ -325,3 +325,43 @@ body{
   height: 70px; /* Adjust height */
   font-size: 40px; /* Adjust font size */
 }
+
+
+
+ /* The alert message box */
+ .alert {
+   padding: 20px;
+   background-color: rgba(11, 102, 35, 0.7); /* Red with reduced opacity */
+   color: white;
+   margin-bottom: 15px;
+   border-radius: 10px; /* Rounded edges */
+   position: relative; /* Required for positioning the check mark */
+ }
+
+ /* The close button */
+ .closebtn {
+   position: absolute;
+   top: 50%;
+   right: 20px;
+   color: white;
+   font-weight: bold;
+   font-size: 22px;
+   line-height: 20px;
+   cursor: pointer;
+   transition: 0.3s;
+ }
+
+ /* When moving the mouse over the close button */
+ .closebtn:hover {
+   color: black;
+ }
+
+ /* Check mark icon */
+ .check-icon::after {
+
+   font-size: 24px;
+   position: absolute;
+   top: 50%;
+   left: 20px;
+   transform: translateY(-50%);
+ }

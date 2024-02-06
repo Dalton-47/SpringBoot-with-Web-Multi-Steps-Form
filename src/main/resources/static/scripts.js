@@ -1,4 +1,4 @@
-/*var form_1 = document.querySelector(".form_1");
+var form_1 = document.querySelector(".form_1");
 var form_2 = document.querySelector(".form_2");
 var form_3 = document.querySelector(".form_3");
 
@@ -14,7 +14,7 @@ var form_3_back_btn = document.querySelector(".form_3_btns .btn_back");
 var form_1_progessbar = document.querySelector(".form_1_progessbar");
 var form_2_progessbar = document.querySelector(".form_2_progessbar");
 var form_3_progessbar = document.querySelector(".form_3_progessbar");
-*/
+
 var form_1 = document.querySelector(".form_1");
 
 var form_2 = document.querySelector(".form_2");
